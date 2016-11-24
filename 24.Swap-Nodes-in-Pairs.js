@@ -1,20 +1,19 @@
 var swapPairs = function(head) {
-
     var result = null,
         resultCurrent = null,
-        current = head;
+        input = head;
   
-    while (current) {
+    while (input) {
       var first = null,
           second = null;
         
-        second = new ListNode(current.val);
-        current = current.next;
+        second = new ListNode(input.val);
+        input = input.next;
         
-        if (current) {
-          first = new ListNode(current.val);
+        if (input) {
+          first = new ListNode(input.val);
           first.next = second;
-          current = current.next;
+          input = input.next;
         
           if (resultCurrent) {
               resultCurrent.next = first;
@@ -23,8 +22,12 @@ var swapPairs = function(head) {
           }
       
           resultCurrent = second;
-        } else {
+        } else {   
+          if (resultCurrent) {
               resultCurrent.next = second;
+          } else {
+              result = second;
+          }
         }
     }
   
