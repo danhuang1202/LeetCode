@@ -1,4 +1,8 @@
 var swapPairs = function(head) {
+    if  (!head || !head.next) {
+        return head;
+    }
+    
     var result = null,
         resultCurrent = null,
         input = head;
